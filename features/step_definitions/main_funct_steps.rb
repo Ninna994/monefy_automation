@@ -51,3 +51,15 @@ Then(/^User sees header as "([^"]*)"$/) do |text|
   find_element(xpath: "//android.widget.TextView[@text='#{text}']")
 end
 
+
+Then(/^User clicks on note field$/) do
+  find_element(id: "textViewNote").click
+end
+
+Then(/^User types "([^"]*)"$/) do |text|
+  find_element(id: "textViewNote").send_keys(text)
+end
+
+When(/^User clicks on return button$/) do
+  Appium::TouchAction.new.tap(x:0.99, y:0.99, count:1).perform
+end

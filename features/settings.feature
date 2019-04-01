@@ -72,3 +72,4 @@ Feature: User is able to setup application for his needs from right side menu us
     When User clicks on OK button on dialog
     Then User sees header text as "All accounts"
 
+
