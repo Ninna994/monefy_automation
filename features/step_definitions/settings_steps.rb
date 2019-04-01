@@ -63,7 +63,7 @@ And(/^User sees "([^"]*)" as menu header text$/) do |text|
 end
 
 And(/^User clicks "([^"]*)" from language list$/) do |language|
-  searchThroughRadioList(language)
+  searchThroughRadioLanguages(language)
 end
 
 Then(/^User is able to see value "([^"]*)" next to Language$/) do |language|
@@ -74,6 +74,8 @@ end
 
 Then(/^User sees header text as "([^"]*)"$/) do |text|
   toolbar_text = find_element(xpath: "//android.widget.TextView[@text='#{text}']").text
-  fail("Language didn't change") if text != toolbar_text
+  fail("Nothing changed, header text not updated") if text != toolbar_text
 
 end
+
+
