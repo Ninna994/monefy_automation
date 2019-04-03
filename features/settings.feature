@@ -40,7 +40,7 @@ Feature: User is able to setup application for his needs from right side menu us
     When User clicks on OK button on dialog
     Then User is able to see value "GBP" next to Currency
     When User swipes from center to right
-    Then User sees Balance with "£" prefix
+    But User sees Balance with "pound" prefix
 # Kada se koristi Scenario Outline koriste se i examples ali se aplikacija svaki put restartuje, zato sam rucno pisala scenario
 #  Examples:
 #    |current_currency_shortcut|new_currency |currency_shortcut|currency_symbol|
@@ -70,6 +70,6 @@ Feature: User is able to setup application for his needs from right side menu us
     And User sees "Odaberite željeni jezik" as menu header text
     And User clicks "English" from language list
     When User clicks on OK button on dialog
-    Then User sees header text as "All accounts"
+    But User sees header text as "All accounts"
 
 

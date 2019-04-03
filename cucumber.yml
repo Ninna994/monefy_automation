@@ -1,2 +1,3 @@
 settings: -t @settings --format html --out reportSettings.html --format pretty
 main: -t @main --format html --out reportMain.html --format pretty
+wip: -t @wip --format html --out reportWip.html --format pretty

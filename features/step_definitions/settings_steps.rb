@@ -15,6 +15,7 @@ And(/^User clicks on "([^"]*)" in right side menu$/) do |text|
     settings_button = find_element(id: "settings_textview")
     settings_button.click
   end
+  puts("I click on #{text}.")
 end
 
 Then(/^User clicks on Currency "([^"]*)"$/) do |currency|
@@ -22,10 +23,10 @@ Then(/^User clicks on Currency "([^"]*)"$/) do |currency|
   actual_text = currency_field.text
   fail("There is no currency #{currency} set") if actual_text != currency
   currency_field.click
+  puts("I click on #{currency}.")
 end
 
 And(/^User clicks "([^"]*)" from currency list$/) do |value|
-  # find_element(xpath: "//android.widget.CheckedTextView[@text='#{value}']").click
   searchThroughRadioList(value)
 end
 
@@ -37,6 +38,7 @@ Then(/^User is able to see value "([^"]*)" next to Currency$/) do |currency|
   currency_element = find_element(id: "currency_name")
   currency_text = currency_element.text
   fail("Expected currency is #{currency}, but actual currency is #{currency_text}") if currency != currency_text
+  puts("I see #{currency} next to currency.")
 end
 
 When(/^User swipes from center to right$/) do
@@ -47,6 +49,7 @@ Then(/^User sees Balance with "([^"]*)" prefix$/) do |prefix|
   actual_text = find_element(id: "balance_amount").text
   text = "Balance #{prefix}0.00"
   fail("Course not changed to #{prefix}") if text != actual_text
+  puts("Balance has #{prefix} prefix.")
 end
 
 Then(/^User clicks on Language "([^"]*)"$/) do |language|
@@ -60,6 +63,7 @@ And(/^User sees "([^"]*)" as menu header text$/) do |text|
   title = find_element(id: "alertTitle")
   title_text = title.text
   fail("Right language isn't set") if text != title_text
+  puts("Header is #{text}.")
 end
 
 And(/^User clicks "([^"]*)" from language list$/) do |language|
@@ -70,12 +74,13 @@ Then(/^User is able to see value "([^"]*)" next to Language$/) do |language|
   language_element = find_element(id: "language_name")
   language_text = language_element.text
   fail("Expected language is #{language}, but actual language is #{language_text}") if language != language_text
+  puts("I see #{language} next to language.")
 end
 
 Then(/^User sees header text as "([^"]*)"$/) do |text|
   toolbar_text = find_element(xpath: "//android.widget.TextView[@text='#{text}']").text
   fail("Nothing changed, header text not updated") if text != toolbar_text
-
+  puts("Text is #{text}.")
 end
 
 

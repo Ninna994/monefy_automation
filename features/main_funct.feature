@@ -2,7 +2,7 @@
 Feature: User is able to use apps basic functions
   Background:
     Given User lands on home screen
-  @wip
+
   Scenario: User is able to add income and expense in app
     #1st scenario
     When User click on Expenses button
@@ -32,12 +32,12 @@ Feature: User is able to use apps basic functions
 # Transfer novca
   Scenario: User is able to transfer money to Payment card
     When User presses transfer button
+    Then User clicks on note field
+    And User types "Transfer novca na racun"
+    Then User clicks on return button
     Then User clicks on Keyboard button at bottom of page
     When User types "9" "3" in application keyboard
     Then "93" should be displayed in green box
-    Then User clicks on note field
-    And User types "Transfer novca na racun"
-    Then User clicks on Keyboard button at bottom of page
     When User clicks on Add Transfer button
     And User swipes from left to right
     Then User should click on dropdown menu
